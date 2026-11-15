@@ -30,7 +30,6 @@ function App() {
 
       <section className="hero" id="top">
         <p className="eyebrow">Independent creative practice</p>
-        <h1>Somewhere<br />between <em>idea</em><br />and <span>impact.</span></h1>
         <div className="hero-bottom">
           <p>Identity, art direction, and digital work.</p>
           <a href="#archive" className="round-link" aria-label="View archive">↓</a>
@@ -42,8 +41,7 @@ function App() {
       </section>
 
       <section className="archive section" id="archive">
-        <div className="section-head"><span>(01)</span><h2>Open<br /><em>archive</em></h2><span>{media.length.toString().padStart(2, '0')} files</span></div>
-        <p className="archive-intro">Posters, experiments, and work in progress.</p>
+        <div className="section-head stripped-head"><span>(01)</span><span>{media.length.toString().padStart(2, '0')} files</span></div>
         {media.length > 0 ? (
           <div className="media-grid">
             {media.map((item) => (
