@@ -1,4 +1,7 @@
 import { useMemo, useState } from 'react'
+import heroProfile from './assets/hero-profile.png'
+import heroSunflower from './assets/hero-sunflower.png'
+import heroSunflowerMask from './assets/hero-sunflower-mask.svg'
 import { normalizeMediaFiles, type MediaItem } from './media'
 
 const mediaModules = import.meta.glob<string>('./media/**/*.{AVIF,GIF,JPEG,JPG,MOV,MP4,PNG,SVG,WEBM,WEBP,avif,gif,jpeg,jpg,mov,mp4,png,svg,webm,webp}', {
@@ -16,22 +19,26 @@ function App() {
     <main>
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Blaine home">BLAINE<span>XX</span></a>
-        <button className="menu-toggle" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>
-          {menuOpen ? 'Close' : 'Index'} <span>↗</span>
-        </button>
-        {menuOpen && (
-          <nav className="overlay-nav" aria-label="Primary navigation">
-            <a href="#archive" onClick={() => setMenuOpen(false)}>The archive</a>
-            <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-            <a href="mailto:hello@blainexx.com">Say hello</a>
-          </nav>
-        )}
       </header>
 
       <section className="hero" id="top">
-        <p className="eyebrow">Independent creative practice</p>
+        <div className="hero-profile" aria-hidden="true">
+          <div className="hero-slab-wrap"><div className="hero-slab" /></div>
+          <div className="hero-plane-wrap"><div className="hero-plane" /></div>
+          <div className="hero-cutout-wrap"><div className="hero-cutout" /></div>
+          <img className="hero-portrait" src={heroProfile} alt="" />
+          <div className="hero-sunflower" style={{ maskImage: `url(${heroSunflowerMask})`, WebkitMaskImage: `url(${heroSunflowerMask})` }}>
+            <img src={heroSunflower} alt="" />
+          </div>
+        </div>
+        <div className="hero-message" aria-label="Visual Direction, Distinction, Curation">
+          <span className="hero-visual">Visual</span>
+          <span className="hero-direction">Direction</span>
+          <span className="hero-distinction">Distinction</span>
+          <span className="hero-curation">Curation</span>
+        </div>
         <div className="hero-bottom">
-          <p>Identity, art direction, and digital work.</p>
+          <p>XXX</p>
           <a href="#archive" className="round-link" aria-label="View archive">↓</a>
         </div>
       </section>
